@@ -9,12 +9,14 @@ using Microsoft.Extensions.Logging;
 
 namespace DevIO.Api.Configuration {
     public static class LoggerConfig {
+        public static string ApiKey => "644dc00b44d643b191ee7d7ce47c4a69";
+        public static Guid LogId => new Guid("b7389637-e4d4-4fb4-a265-45125727de8b");
         public static IServiceCollection AddLoggingConfiguration(this IServiceCollection services) {
             //Aqui os Elmah captura as excessões e os erros
             services.AddElmahIo(o =>
             {
-                o.ApiKey = "644dc00b44d643b191ee7d7ce47c4a69";
-                o.LogId = new Guid("b7389637-e4d4-4fb4-a265-45125727de8b");
+                o.ApiKey = ApiKey;
+                o.LogId = LogId;
             });
 
             //Repete as informações para que Elmah possa capturar os nossos logs

@@ -20,7 +20,7 @@ namespace DevIO.Api.Extensions {
                     var command = connection.CreateCommand();
                     command.CommandText = "select count(1) from Produtos";
 
-                    return Convert.ToInt32(await command.ExecuteScalarAsync(cancellationToken)) > 0
+                    return Convert.ToInt32(await command.ExecuteScalarAsync(cancellationToken)) < 0
                         ? HealthCheckResult.Healthy()
                         : HealthCheckResult.Degraded();
                 }
